@@ -1,11 +1,11 @@
 "use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import styles from "@/app/components/layout.module.css";
-import Header from "@/app/components/Header";
+import styles from "../app/components/layout.module.css";
+import Header from "../app/components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Footer from "@/app/components/Footer";
+import Footer from "../app/components/Footer";
 import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({

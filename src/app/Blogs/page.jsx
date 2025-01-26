@@ -1,5 +1,5 @@
 import React from 'react';
-import getBlogs from '@/lib/wordpress';
+import getBlogs from '../../lib/wordpress';
 import Link from "next/link";
 import Layout from '../layout';
 import Image from 'next/image'

@@ -1,5 +1,5 @@
-import Layout from "@/app/layout";
-import { getBlogData } from "@/lib/wordpress";
+import Layout from "../../../app/layout";
+import { getBlogData } from "../../../lib/wordpress";
 import Image from 'next/image'
 
 export default async function BlogPost({ params }) {
