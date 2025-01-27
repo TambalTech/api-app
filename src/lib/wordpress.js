@@ -1,6 +1,11 @@
 import React from 'react'
-const BASE_URL = process.env.WP_BASE_URL;
-const MY_BASE_URL = process.env.MY_BASE_URL;
+//const BASE_URL = process.env.WP_BASE_URL;
+//const BASE_URL = `${process.env.NEXT_PUBLIC_WP_JSON_URL}/${process.env.WP_NS}/${process.env.WP_API_VERSION}`;
+//const MY_BASE_URL = `${process.env.NEXT_PUBLIC_WP_JSON_URL}/${process.env.MY_NS}/${process.env.MY_API_VERSION}`;
+const BASE_URL = `${process.env.NEXT_PUBLIC_WP_JSON_URL}/${process.env.WP_NS}/${process.env.WP_API_VERSION}/`;
+const MY_BASE_URL = `${process.env.NEXT_PUBLIC_WP_JSON_URL}/${process.env.MY_NS}/${process.env.MY_API_VERSION}/`;
+//const MY_BASE_URL = process.env.MY_BASE_URL;
+
 
 export default async function getBlogs() {
     const postRes= await fetch(BASE_URL+'posts?_fields=id,title,slug,content,excerpt,featured_image_url');
