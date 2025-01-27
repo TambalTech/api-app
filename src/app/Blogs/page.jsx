@@ -1,20 +1,20 @@
 import React from 'react';
-import getBlogs from '../../lib/wordpress';
-import Link from "next/link";
+import getBlogs from '../../lib/wordpress'; // Adjust path if needed
+import Link from 'next/link';
 import Layout from '../layout';
-import Image from 'next/image'
 
 export default async function Blogs() {
-  const allPostData = await getBlogs();
+  const allPostData = await getBlogs(); // Fetch all blog posts
+
   return (
-   <Layout>
+    <Layout>
       <section className="text-gray-600 body-font">
-          <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap -m-4">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4">
             {allPostData.map((post) => (
-              <div className="p-4 md:w-1/3">
-                <div key={post.id} className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                  <Image
+              <div className="p-4 md:w-1/3" key={post.id}>
+                <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <img
                     className="lg:h-48 md:h-36 w-full object-cover object-center"
                     src={post.featured_image_url}
                     alt="blog"
@@ -22,13 +22,18 @@ export default async function Blogs() {
                     height={500}
                   />
                   <div className="p-6">
-                  
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                       {post.title.rendered}
                     </h1>
-                    <div className="leading-relaxed mb-3" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}/> 
+                    <div
+                      className="leading-relaxed mb-3"
+                      dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                    />
                     <div className="flex items-center flex-wrap ">
-                      <Link href={"Blog/"+post.slug} className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                      <Link
+                        href={`/Blog/${post.slug}`} // Link to dynamic blog post page
+                        className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
+                      >
                         Learn More
                         <svg
                           className="w-4 h-4 ml-2"
@@ -43,15 +48,14 @@ export default async function Blogs() {
                           <path d="M12 5l7 7-7 7" />
                         </svg>
                       </Link>
-                      
                     </div>
                   </div>
                 </div>
               </div>
-                ))}
-            </div>
+            ))}
           </div>
+        </div>
       </section>
-      </Layout>
-  )
+    </Layout>
+  );
 }
